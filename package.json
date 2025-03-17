@@ -1,0 +1,29 @@
+{
+	"name": "offcuts_ts",
+	"module": "src/app.ts",
+	"type": "module",
+	"scripts": {
+		"build": "bun run script/build.ts",
+		"start": "bun run build && bun run src/app.ts"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"@types/express": "^5.0.0",
+		"@types/fast-levenshtein": "^0.0.4",
+		"@types/react": "^19.0.10",
+		"@types/react-dom": "^19.0.4",
+		"axios": "^1.8.3",
+		"express": "^4.21.2",
+		"fast-levenshtein": "^3.0.0",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-router-dom": "^7.3.0",
+		"react-spring": "^9.7.5",
+		"zod": "^3.24.2"
+	}
+}
