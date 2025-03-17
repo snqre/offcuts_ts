@@ -1,4 +1,5 @@
 import * as Web from "@web";
+// @ts-ignore
 import ICON from "../../web/public/icon/big_star_and_smaller_star.png";
 
 export type NavbarCallToActionButtonStarProps = 

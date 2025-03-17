@@ -1,4 +1,5 @@
 import * as Web from "@web";
+// @ts-ignore
 import ICON from "../../web/public/icon/search.png";
 
 export type NavbarSearchBarProps =

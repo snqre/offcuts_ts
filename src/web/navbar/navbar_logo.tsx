@@ -1,4 +1,5 @@
 import * as Web from "@web";
+// @ts-ignore
 import LOGO from "./img/logo.png";
 
 export type NavbarLogoProps = 

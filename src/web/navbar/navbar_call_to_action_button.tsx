@@ -27,7 +27,7 @@ export function NavbarCallToActionButton({to, style, children, ...more}: NavbarC
                 }}/>
             <Web.ReactRouterDOM.Link
                 to={to}>
-                <NavButton
+                <Web.NavbarButton
                     style={{
                         background: Web.Theme.DARK_COLOR
                     }}
@@ -35,7 +35,7 @@ export function NavbarCallToActionButton({to, style, children, ...more}: NavbarC
                         color: Web.Theme.LIGHT_COLOR
                     }}>
                     {children}
-                </NavButton>
+                </Web.NavbarButton>
             </Web.ReactRouterDOM.Link>
         </div>
     </>;

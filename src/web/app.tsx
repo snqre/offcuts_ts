@@ -128,7 +128,7 @@ function App(): React.ReactNode {
                     path="/"
                     element={<>
                         <Web.Page
-                            navbar={<Web.NavbarPartialPrebuild/>}>
+                            navbar={<Web.NavbarPartialBuild/>}>
                             <div
                                 style={{
                                     display: "flex",
