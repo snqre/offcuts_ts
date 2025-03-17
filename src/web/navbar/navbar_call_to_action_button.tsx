@@ -31,7 +31,7 @@ export function NavbarCallToActionButton({to, style, children, ...more}: NavbarC
                     style={{
                         background: Web.Theme.DARK_COLOR
                     }}
-                    childStyle={{
+                    contentStyle={{
                         color: Web.Theme.LIGHT_COLOR
                     }}>
                     {children}

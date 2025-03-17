@@ -5,11 +5,13 @@ export type NavbarButtonProps =
     & {
     icon?: string;
     iconStyle?: Web.React.CSSProperties;
+    contentStyle?: Web.React.CSSProperties;
 };
 
 export function NavbarButton({
     icon,
     iconStyle,
+    contentStyle,
     style,
     children,
     ...more
@@ -54,7 +56,7 @@ export function NavbarButton({
                     fontWeight: "normal",
                     fontFamily: Web.Theme.FONT_1,
                     color: Web.Theme.DARK_COLOR,
-                    ...style
+                    ...contentStyle
                 }}>
                 {children}
             </div> : undefined}

@@ -20,7 +20,7 @@ export function NavbarSearchBar({products, productFocus, toggled, input, suggest
             return;
         }
         let suggestions$: Array<Web.ProductData> = products[0]
-            .map(product => ({...product, score: Web.sortFromLevenshtein(input[0], product?.name?.toLocaleLowerCase())}))
+            .map(product => ({...product, score: Web.sortFromLevenshtein(input[0], product?.name?.toLocaleLowerCase() || "")}))
             .sort((x, y) => x.score - y.score)
             .slice(0, 10);
         suggestions[1](suggestions$);
