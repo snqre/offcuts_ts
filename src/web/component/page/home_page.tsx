@@ -2,17 +2,25 @@ import {
     type ReactNode,
     type PageWith3VerticalSectionsProps,
     PageWith3VerticalSections,
-    ImageCarousel
+    ImageCarousel,
+    Typography,
+    Color,
+    type SpringConfig
 } from "@web";
 
 export type HomePageProps =
     & Omit<PageWith3VerticalSectionsProps,
         | "sections">
     & {
-    
+    imageCarouselUrls: Array<string>,
+    imageCarouselMsIntervalSleep: number,
+    imageCarouselAnimation: SpringConfig
 };
 
 export function HomePage({
+    imageCarouselUrls,
+    imageCarouselMsIntervalSleep,
+    imageCarouselAnimation,
     ...more
 }: HomePageProps): ReactNode {
     return <>
@@ -25,12 +33,16 @@ export function HomePage({
                         flex: "1",
                         margin: "10px"
                     }}
-                    urls={[]}
-                    msIntervalSleep={30 * 1000}
-                    animation={{
-                        duration: 30 * 1000
-                    }}>
-                    
+                    urls={imageCarouselUrls}
+                    msIntervalSleep={imageCarouselMsIntervalSleep}
+                    animation={imageCarouselAnimation}>
+                    <Typography
+                        style={{
+                            fontSize: "9em",
+                            color: Color[0]
+                        }}>
+                        OFFCUTS
+                    </Typography>
                 </ImageCarousel>
             </>, <>
             

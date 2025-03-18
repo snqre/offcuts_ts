@@ -10,6 +10,7 @@ import {
     NavButton,
     NavCallToActionButton,
     NavPartialBuild,
+    HomePage,
     useState
 } from "@web";
 
@@ -27,13 +28,19 @@ function App(): ReactNode {
                 <Route
                     path="/"
                     element={<>
-                        <NavPartialBuild
-                            materials={materials}
-                            materialFocus={materialFocus}
-                            products={products}
-                            productFocus={productFocus}
-                            user={user}
-                            userIsSignedIn={userIsSignedIn}/>
+                        <HomePage
+                            imageCarouselUrls={}
+                            imageCarouselMsIntervalSleep={}
+                            imageCarouselAnimation={}
+                            navbar={<>
+                                <NavPartialBuild
+                                    materials={materials}
+                                    materialFocus={materialFocus}
+                                    products={products}
+                                    productFocus={productFocus}
+                                    user={user}
+                                    userIsSignedIn={userIsSignedIn}/>
+                            </>}/>
                     </>}/>
             </Routes>
         </BrowserRouter>
