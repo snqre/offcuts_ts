@@ -87,13 +87,26 @@ export function NavSignerDropDownButtonPartialBuild({
                     user={user}
                     userIsSignedIn={userIsSignedIn}
                     onValidation={async (username, password) => {
-
+                        try {
+                            require(username.trim().length !== 0, "");
+                            require(password.trim().length !== 0, "");
+                            return [true, null];
+                        }
+                        catch (e) {
+                            return [false, String(e)];
+                        }
                     }}
                     onSignIn={async (username, password) => {
-
+                        let errcode: Bridge.Err | null = (await Bridge.touch("/sign_in", {
+                            username: username,
+                            password: password
+                        }));
+                        if (errcode) {
+                            return [false, errcode];
+                        }
+                        return [true, null];
                     }}/>
             </>}
             {...more}/>
     </>;
 }
-
