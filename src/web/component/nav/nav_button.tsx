@@ -15,7 +15,9 @@ export type NavButtonProps =
     icon?: string,
     iconStyle?: CSSProperties,
     childStyle?: CSSProperties,
-    animation?: SpringConfig
+    animation?: SpringConfig,
+    fontSizeOnMouseEnter?: string,
+    fontSizeOnMouseLeave?: string
 };
 
 export function NavButton({
@@ -23,14 +25,14 @@ export function NavButton({
     iconStyle,
     childStyle,
     animation,
+    fontSizeOnMouseEnter="0.6em",
+    fontSizeOnMouseLeave="0.7em",
     style,
     children,
     ...more
 }: NavButtonProps): ReactNode {
-    let initFontSize: string = "0.75em";
-    let nextFontSize: string = "0.50em";
     let spring = useSpring(() => ({
-        fontSize: initFontSize
+        fontSize: fontSizeOnMouseLeave
     }));
     
     return <>
@@ -69,14 +71,14 @@ export function NavButton({
                 <animated.div
                     onMouseEnter={() => {
                         spring[1].start({
-                            fontSize: nextFontSize,
+                            fontSize: fontSizeOnMouseEnter,
                             config: animation
                         });
                         return;
                     }}
                     onMouseLeave={() => {
                         spring[1].start({
-                            fontSize: initFontSize,
+                            fontSize: fontSizeOnMouseLeave,
                             config: animation
                         });
                         return;
