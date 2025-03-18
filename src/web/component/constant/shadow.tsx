@@ -1,0 +1,1 @@
+export const SHADOW: string = "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px";

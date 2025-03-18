@@ -1,9 +1,10 @@
 import { build } from "bun";
 
 build({
-    entrypoints: ["./src/web/app.tsx"],
+    entrypoints: ["src/web/app.tsx"],
     format: "esm",
     minify: false,
-    outdir: "./src/web",
+    outdir: "src/web",
     sourcemap: "inline",
+    target: "browser"
 });

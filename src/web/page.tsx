@@ -7,7 +7,7 @@ export type PageProps =
     footer?: Web.React.ReactNode;
 };
 
-export function Page({ navbar, footer, style, children }: PageProps): Web.React.ReactNode {
+export function Page({navbar, footer, style, children, ...more}: PageProps): Web.React.ReactNode {
     return <>
         <div
             style={{
@@ -19,7 +19,8 @@ export function Page({ navbar, footer, style, children }: PageProps): Web.React.
                 height: "100vh",
                 background: "white",
                 ...style
-            }}>
+            }}
+            {...more}>
             <div
                 style={{
                     display: "flex",
@@ -34,7 +35,7 @@ export function Page({ navbar, footer, style, children }: PageProps): Web.React.
                     paddingLeft: 64,
                     paddingRight: 64
                 }}>
-                { navbar }
+                {navbar}
                 <div
                     style={{
                         display: "flex",
@@ -45,10 +46,10 @@ export function Page({ navbar, footer, style, children }: PageProps): Web.React.
                         width: "100%",
                         height: "100%"
                     }}>
-                    { children }
+                    {children}
                 </div>
-                { footer }
+                {footer}
             </div>
-        </div>
+        </div>     
     </>;
 }

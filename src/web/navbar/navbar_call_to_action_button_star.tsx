@@ -1,6 +1,6 @@
 import * as Web from "@web";
 // @ts-ignore
-import ICON from "../../web/public/icon/big_star_and_smaller_star.png";
+import ICON from "../img/big_star_and_smaller_star_icon.png";
 
 export type NavbarCallToActionButtonStarProps = 
     & Omit<Web.React.ComponentPropsWithRef<"div">, "children">

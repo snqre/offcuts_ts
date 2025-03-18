@@ -1,3 +1,10 @@
-import * as Common from "@common";
+import { type OrderData } from "@common";
 
-export type UserData = typeof Common.UserDataSchema._type;
+export type UserData = {
+    username: string;
+    hash: string;
+    orders: Array<OrderData>;
+    email?: string;
+    phonenumber?: string;
+    address?: string;
+};

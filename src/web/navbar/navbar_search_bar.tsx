@@ -1,6 +1,6 @@
 import * as Web from "@web";
 // @ts-ignore
-import ICON from "../../web/public/icon/search.png";
+import ICON from "../img/search_icon.png";
 
 export type NavbarSearchBarProps =
     & Omit<Web.React.ComponentPropsWithRef<"div">, "children">

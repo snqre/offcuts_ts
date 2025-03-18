@@ -1,3 +1,6 @@
-import * as Common from "@common";
+import { type ProductData } from "@common";
 
-export type OrderData = typeof Common.OrderDataSchema._type;
+export type OrderData = {
+    product: ProductData;
+    amount: number;
+};

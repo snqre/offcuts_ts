@@ -1,16 +1,28 @@
-import * as Web from "@web";
+import {
+    type State,
+    type ComponentPropsWithRef,
+    type ReactNode,
+    type ProductData,
+    type UserData,
+    type NavbarSignUpFormOnSignUpAction,
+    type NavbarSignInFormOnSignInAction,
+    Navbar,
+    NavbarSignInForm,
+    NavbarSignUpForm,
+    useState,
+} from "@web";
 
 export type NavbarPartialBuildProps = 
-    & Web.React.ComponentPropsWithRef<"div">
+    & ComponentPropsWithRef<"div">
     & {
-    materials: Web.State<Array<string>>;
-    materialFocus: Web.State<string>;
-    products: Web.State<Array<Web.ProductData>>;
-    productFocus: Web.State<string>;
-    user: Web.State<Web.UserData | null>;
-    userIsSignedIn: Web.State<boolean>;
-    onSignUp: Web.NavbarSignUpFormOnSignUpAction;
-    onSignIn: Web.NavbarSignInFormOnSignInAction;
+    materials: State<Array<string>>;
+    materialFocus: State<string>;
+    products: State<Array<ProductData>>;
+    productFocus: State<string>;
+    user: State<UserData | null>;
+    userIsSignedIn: State<boolean>;
+    onSignUp: NavbarSignUpFormOnSignUpAction;
+    onSignIn: NavbarSignInFormOnSignInAction;
 };
 
 export function NavbarPartialBuild({
@@ -23,23 +35,23 @@ export function NavbarPartialBuild({
     onSignUp,
     onSignIn,
     ...more
-}: NavbarPartialBuildProps): Web.React.ReactNode {
-    let materialsDropDownButtonToggled: Web.State<boolean> = Web.React.useState<boolean>(false);
-    let searchBarToggled: Web.State<boolean> = Web.React.useState<boolean>(false);
-    let searchBarInput: Web.State<string> = Web.React.useState<string>("");
-    let searchBarSuggestions: Web.State<Array<Web.ProductData>> = Web.React.useState<Array<Web.ProductData>>([]);
-    let signUpFormUsernameInput: Web.State<string> = Web.React.useState<string>("");
-    let signUpFormPasswordInput: Web.State<string> = Web.React.useState<string>("");
-    let signUpFormEmailInput: Web.State<string> = Web.React.useState<string>("");
-    let signInSignUpButtonToggled: Web.State<boolean> = Web.React.useState<boolean>(false);
-    let signUpToggled: Web.State<boolean> = Web.React.useState<boolean>(false);
-    let signInToggled: Web.State<boolean> = Web.React.useState<boolean>(false);
-    let signInFormUsernameInput: Web.State<string> = Web.React.useState<string>("");
-    let signInFormPasswordInput: Web.State<string> = Web.React.useState<string>("");
-    let signInFormIsValidInput: Web.State<boolean> = Web.React.useState<boolean>(false);
+}: NavbarPartialBuildProps): ReactNode {
+    let materialsDropDownButtonToggled: State<boolean> = useState<boolean>(false);
+    let searchBarToggled: State<boolean> = useState<boolean>(false);
+    let searchBarInput: State<string> = useState<string>("");
+    let searchBarSuggestions: State<Array<ProductData>> = useState<Array<ProductData>>([]);
+    let signUpFormUsernameInput: State<string> = useState<string>("");
+    let signUpFormPasswordInput: State<string> = useState<string>("");
+    let signUpFormEmailInput: State<string> = useState<string>("");
+    let signInSignUpButtonToggled: State<boolean> = useState<boolean>(false);
+    let signUpToggled: State<boolean> = useState<boolean>(false);
+    let signInToggled: State<boolean> = useState<boolean>(false);
+    let signInFormUsernameInput: State<string> = useState<string>("");
+    let signInFormPasswordInput: State<string> = useState<string>("");
+    let signInFormIsValidInput: State<boolean> = useState<boolean>(false);
 
     return <>
-        <Web.Navbar
+        <Navbar
             materials={materials}
             materialFocus={materialFocus}
             materialsDropDownButtonToggled={materialsDropDownButtonToggled}
@@ -52,21 +64,20 @@ export function NavbarPartialBuild({
             signUpToggled={signUpToggled}
             signInToggled={signInToggled}
             signUpForm={<>
-                <Web.NavbarSignUpForm
+                <NavbarSignUpForm
                     usernameInput={signUpFormUsernameInput}
                     passwordInput={signUpFormPasswordInput}
                     emailInput={signUpFormEmailInput}
                     onSignUp={onSignUp}/>
             </>}
             signInForm={<>
-                <Web.NavbarSignInForm
+                <NavbarSignInForm
                     usernameInput={signInFormUsernameInput}
                     passwordInput={signInFormPasswordInput}
                     isValidInput={signInFormIsValidInput}
                     user={user}
                     userIsSignedIn={userIsSignedIn}
-                    onSignIn={onSignIn}
-                    />
+                    onSignIn={onSignIn}/>
             </>}
             {...more}/>
     </>;

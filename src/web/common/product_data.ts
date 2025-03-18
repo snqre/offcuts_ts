@@ -1,3 +1,9 @@
-import * as Common from "@common";
-
-export type ProductData = typeof Common.ProductDataSchema._type;
+export type ProductData = {
+    key: string;
+    name?: string;
+    description?: string;
+    price: number;
+    stock: number;
+    material?: string;
+    imageUrl?: string;
+};

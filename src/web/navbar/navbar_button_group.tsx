@@ -1,4 +1,6 @@
-import * as Web from "@web";
+import {
+    type ReactNode,
+} from "@web";
 
 export type NavbarButtonGroupProps =
     & Web.React.ComponentPropsWithRef<"div">

@@ -1,8 +1,11 @@
-import * as Common from "@common";
+import {
+    type UserData,
+    type ProductData
+} from "@common";
 
 export type AppData = {
     users: {
-        [username: string]: Common.UserData | undefined;
+        [username: string]: UserData | undefined;
     };
-    products: Array<Common.ProductData>;
+    products: Array<ProductData>;
 };
