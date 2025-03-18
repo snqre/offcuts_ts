@@ -5,9 +5,13 @@ export * from "./component/constant/font";
 export * from "./component/constant/shadow";
 export * from "./component/form/form_button";
 export * from "./component/form/form_input";
+export * from "./component/form/form_message";
 export * from "./component/form/form";
 export * from "./component/layout/page_with_3_vertical_sections";
 export * from "./component/layout/page";
+export * from "./component/nav/nav_sign_up_form";
+export * from "./component/nav/nav_suggestion";
+
 export * from "./component/table/table_body";
 export * from "./component/table/table_caption";
 export * from "./component/table/table_heading";
@@ -31,7 +35,9 @@ export {
 export {
     BrowserRouter,
     Routes,
-    Route
+    Route,
+    Link,
+    LinkProps
 } from "react-router-dom";
 
 export {
@@ -50,7 +56,6 @@ export * as ReactRouterDOM from "react-router-dom";
 export * as ReactSpring from "react-spring";
 export { get as sortFromLevenshtein } from "fast-levenshtein";
 export * from "./color_palette";
-export * from "./image_carousel";
 export * from "./shadow_palette";
 export * from "./theme";
 export * from "./navbar/mod";
