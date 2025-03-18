@@ -13,7 +13,10 @@ import {
 } from "@web";
 
 export type NavSearchBarProps =
-    & Omit<ComponentPropsWithRef<"div">, "children">
+    & Omit<
+        ComponentPropsWithRef<"div">, 
+        | "children"
+        >
     & {
     products: State<Array<ProductData>>;
     productFocus: State<ProductData>;

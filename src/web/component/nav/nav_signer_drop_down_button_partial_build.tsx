@@ -6,17 +6,20 @@ import {
     NavSignerDropDownButton,
     NavSignUpForm,
     NavSignInForm,
+    Bridge,
     useState,
-    post
+    require
 } from "@web";
 
 export type NavSignerDropDownButtonPartialBuildProps = 
-    & Omit<NavSignerDropDownButtonProps,
+    & Omit<
+        NavSignerDropDownButtonProps,
         | "toggled"
         | "signUpToggled"
         | "signInToggled"
         | "signUpForm"
-        | "signInForm">
+        | "signInForm"
+        >
     & {
     user: State<UserData | null>,
     userIsSignedIn: State<boolean>
@@ -49,13 +52,30 @@ export function NavSignerDropDownButtonPartialBuild({
                     email={email}
                     response={response}
                     onValidation={async (username, password, email) => {
-                        if ((await post<boolean>("/is_available_username", username)) === false) {
-                            return [false, "Username already taken."];
+                        try {
+                            require(username.trim().length !== 0, "");
+                            require(password.trim().length !== 0, "");
+                            require(email.trim().length !== 0, "");
+                            return [true, null];
                         }
-                        return [true, null];
+                        catch (e: unknown) {
+                            return [false, String(e)];
+                        }
                     }}
                     onSignUp={async (username, password, email) => {
-                        
+                        if ((await Bridge.touch("/username_is_available", {
+                            username: username
+                        })).success) {
+                            let errcode: Bridge.Err | null = (await Bridge.touch("/sign_up", {
+                                username: username,
+                                password: password,
+                                email: email
+                            }));
+                            if (errcode) {
+                                return [false, errcode];
+                            }
+                            return [true, null];
+                        }
                         return [false, null];
                     }}/>
             </>}
