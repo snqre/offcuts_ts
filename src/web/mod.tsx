@@ -56,6 +56,8 @@ export * from "./component/nav/nav_button";
 export * from "./component/nav/nav_call_to_action_button_icon";
 export * from "./component/nav/nav_call_to_action_button";
 export * from "./component/nav/nav_logo";
+export * from "./component/nav/nav_materials_drop_down_button";
+export * from "./component/nav/nav_partial_build";
 export * from "./component/nav/nav_search_bar_partial_build";
 export * from "./component/nav/nav_search_bar";
 export * from "./component/nav/nav_sign_in_form";

@@ -1,14 +1,29 @@
-import * as Web from "@web";
+import {
+    type ComponentPropsWithRef,
+    type ReactNode,
+    type State,
+    SHADOW,
+    Link,
+    Font,
+    Color
+} from "@web";
 
-export type NavbarMaterialsDropDownButtonProps = 
-    & Web.React.ComponentPropsWithRef<"div">
+export type NavMaterialsDropDownButtonProps =
+    & ComponentPropsWithRef<"div">
     & {
-    materials: Web.State<Array<string>>;
-    materialFocus: Web.State<string>;
-    toggled: Web.State<boolean>;
+    materials: State<Array<string>>,
+    materialFocus: State<string>,
+    toggled: State<boolean>
 };
 
-export function NavbarMaterialsDropDownButton({materials, materialFocus, toggled, style, children, ...more}: NavbarMaterialsDropDownButtonProps): Web.React.ReactNode {
+export function NavMaterialsDropDownButton({
+    materials,
+    materialFocus,
+    toggled,
+    style,
+    children,
+    ...more
+}: NavMaterialsDropDownButtonProps): ReactNode {
     return <>
         <div
             style={{
@@ -17,7 +32,7 @@ export function NavbarMaterialsDropDownButton({materials, materialFocus, toggled
                 justifyContent: "center",
                 alignItems: "center",
                 position: "relative",
-                ...style 
+                ...style
             }}
             {...more}>
             <div
@@ -29,13 +44,13 @@ export function NavbarMaterialsDropDownButton({materials, materialFocus, toggled
                     alignItems: "center",
                     fontSize: "1em",
                     fontWeight: "normal",
-                    fontFamily: Web.Theme.FONT_1,
-                    color: Web.Theme.DARK_COLOR,
+                    fontFamily: Font[1],
+                    color: Color[0],
                     cursor: "pointer"
                 }}>
                 {children}
             </div>
-            {toggled[1] ? <>
+            {toggled[0] ? <>
                 <div
                     onMouseLeave={() => toggled[1](false)}
                     style={{
@@ -47,12 +62,12 @@ export function NavbarMaterialsDropDownButton({materials, materialFocus, toggled
                         top: "120%",
                         gap: 20,
                         padding: 10,
-                        boxShadow: Web.Theme.SHADOW
+                        boxShadow: SHADOW
                     }}>
                     {materials[0].map(material => <>
-                        <Web.ReactRouterDOM.Link
-                            onClick={() => materialFocus[1](material)}
-                            to="/show_room">
+                        <Link
+                            to="/show_room"
+                            onClick={() => materialFocus[1](material)}>
                             <div
                                 style={{
                                     display: "flex",
@@ -61,13 +76,13 @@ export function NavbarMaterialsDropDownButton({materials, materialFocus, toggled
                                     alignItems: "center",
                                     fontSize: "0.75em",
                                     fontWeight: "normal",
-                                    fontFamily: Web.Theme.FONT_1,
-                                    color: Web.Theme.DARK_COLOR,
+                                    fontFamily: Font[1],
+                                    color: Color[0],
                                     cursor: "pointer"
                                 }}>
                                 {material}
                             </div>
-                        </Web.ReactRouterDOM.Link>
+                        </Link>
                     </>)}
                 </div>
             </> : undefined}

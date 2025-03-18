@@ -5,7 +5,8 @@ import {
     Route,
     render,
     NavButton,
-    NavCallToActionButton
+    NavCallToActionButton,
+    Nav
 } from "@web";
 
 function App(): ReactNode {
@@ -15,10 +16,7 @@ function App(): ReactNode {
                 <Route
                     path="/"
                     element={<>
-                        <NavCallToActionButton
-                            to="/">
-                            For Me
-                        </NavCallToActionButton>
+                        <Nav/>
                     </>}/>
             </Routes>
         </BrowserRouter>

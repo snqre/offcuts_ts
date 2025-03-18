@@ -8,6 +8,7 @@ import {
     NavButton,
     NavButtonGroup,
     NavCallToActionButton,
+    NavMaterialsDropDownButton,
     NavSearchBarPartialBuild,
     NavSignerDropDownButtonPartialBuild,
     Link
@@ -63,7 +64,10 @@ export function Nav({
                     to="/for_you">
                     For You
                 </NavCallToActionButton>
-
+                <NavMaterialsDropDownButton
+                    materials={materials}
+                    materialFocus={materialFocus}
+                    toggled={materialsDropDownButtonToggled}/>
             </NavButtonGroup>
             <NavSearchBarPartialBuild
                 products={products}
