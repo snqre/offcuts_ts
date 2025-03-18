@@ -1,4 +1,6 @@
-import { default as Axios } from "axios";
+import {
+    default as Axios
+} from "axios";
 
 export async function get<T1=unknown>(url: string): Promise<T1> {
     return (await Axios.get(url)).data;

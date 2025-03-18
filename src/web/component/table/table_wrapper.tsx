@@ -1,6 +1,6 @@
 import {
-    ComponentPropsWithRef,
-    ReactNode
+    type ComponentPropsWithRef,
+    type ReactNode
 } from "@web";
 
 export type TableWrapperProps = 

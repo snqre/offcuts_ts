@@ -1,8 +1,8 @@
 import {
-    ReactNode,
-    State,
-    AsyncClosure,
-    FormProps,
+    type ReactNode,
+    type State,
+    type AsyncClosure,
+    type FormProps,
     Form,
     FormInput,
     FormButton,

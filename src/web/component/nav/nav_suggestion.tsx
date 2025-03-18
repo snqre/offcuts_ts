@@ -1,8 +1,8 @@
 import {
-    ComponentPropsWithRef,
-    ReactNode,
-    State,
-    ProductData,
+    type ComponentPropsWithRef,
+    type ReactNode,
+    type State,
+    type ProductData,
     Link,
     Font,
     Color

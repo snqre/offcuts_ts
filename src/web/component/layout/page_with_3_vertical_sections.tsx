@@ -1,7 +1,7 @@
 import {
-    ReactNode,
-    ComponentPropsWithRef,
-    PageProps,
+    type ReactNode,
+    type ComponentPropsWithRef,
+    type PageProps,
     Page,
 } from "@web";
 

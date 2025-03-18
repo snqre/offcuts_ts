@@ -2,11 +2,11 @@
 import LOGO from "./img/logo.png"; export { LOGO };
 
 export {
-    ComponentPropsWithRef,
-    ReactNode,
-    Dispatch,
-    SetStateAction,
-    CSSProperties,
+    type ComponentPropsWithRef,
+    type ReactNode,
+    type Dispatch,
+    type SetStateAction,
+    type CSSProperties,
     useEffect,
     useState
 } from "react";
@@ -20,11 +20,11 @@ export {
     Routes,
     Route,
     Link,
-    LinkProps
+    type LinkProps
 } from "react-router-dom";
 
 export {
-    SpringConfig,
+    type SpringConfig,
     useSpring,
     useSprings,
     animated

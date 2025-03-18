@@ -1,8 +1,8 @@
 import {
-    ReactNode,
-    ComponentPropsWithRef,
-    CSSProperties,
-    SpringConfig,
+    type ReactNode,
+    type ComponentPropsWithRef,
+    type CSSProperties,
+    type SpringConfig,
     Font,
     Color,
     useSpring,

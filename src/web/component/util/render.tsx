@@ -1,5 +1,5 @@
 import {
-    ReactNode,
+    type ReactNode,
     Root
 } from "@web";
 

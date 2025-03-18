@@ -1,7 +1,7 @@
 import {
+    type ComponentPropsWithRef,
+    type ReactNode,
     SHADOW,
-    ComponentPropsWithRef,
-    ReactNode,
     Font,
     Color
 } from "@web";

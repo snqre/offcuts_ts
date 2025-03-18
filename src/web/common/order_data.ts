@@ -1,4 +1,6 @@
-import { type ProductData } from "@common";
+import {
+    type ProductData
+} from "@common";
 
 export type OrderData = {
     product: ProductData;

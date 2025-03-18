@@ -1,6 +1,6 @@
 import {
-    ComponentPropsWithRef,
-    ReactNode,
+    type ComponentPropsWithRef,
+    type ReactNode,
     Font,
     Color
 } from "@web";

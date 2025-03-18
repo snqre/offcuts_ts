@@ -1,4 +1,6 @@
-import { type OrderData } from "@common";
+import {
+    type OrderData
+} from "@common";
 
 export type UserData = {
     username: string;

@@ -1,9 +1,9 @@
 import {
+    type ComponentPropsWithRef,
+    type ReactNode,
+    type State,
+    type SpringConfig,
     SHADOW,
-    ComponentPropsWithRef,
-    ReactNode,
-    State,
-    SpringConfig,
     useSprings,
     useState,
     useEffect,

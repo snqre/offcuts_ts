@@ -1,6 +1,6 @@
 import {
-    ComponentPropsWithRef,
-    ReactNode,
+    type ComponentPropsWithRef,
+    type ReactNode,
     TableWrapper,
     TableRow,
     TableCaption,
