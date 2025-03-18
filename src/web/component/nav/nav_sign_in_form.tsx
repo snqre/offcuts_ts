@@ -2,6 +2,7 @@ import {
     ReactNode,
     State,
     AsyncClosure,
+    UserData,
     FormProps,
     Form,
     FormInput,
@@ -9,59 +10,53 @@ import {
     FormMessage
 } from "@web";
 
-export type NavSignUpFormSignUpAction = AsyncClosure<[
+export type NavSignInFromSignUpAction = AsyncClosure<[
     username: string,
-    password: string,
-    email: string
+    password: string
 ], [
     success: boolean,
     message: string | null
 ]>;
 
-export type NavSignUpFormValidateAction = AsyncClosure<[
+export type NavSignInFormValidateAction = AsyncClosure<[
     username: string,
-    password: string,
-    email: string
+    password: string
 ], [
     success: boolean,
     message: string | null
 ]>;
 
-export type NavSignUpFormProps =
+export type NavSignInFormProps = 
     & Omit<FormProps, "children">
     & {
     username: State<string>,
     password: State<string>,
-    email: State<string>,
     response: State<string | null>,
-    onValidation: NavSignUpFormValidateAction,
-    onSignUp: NavSignUpFormSignUpAction
+    user: State<UserData | null>,
+    userIsSignedIn: State<boolean>,
+    onValidation: NavSignInFormValidateAction,
+    onSignIn: NavSignInFromSignUpAction
 };
 
-export function NavSignUpForm({
+export function NavSignInForm({
     username,
     password,
-    email,
     response,
+    user,
+    userIsSignedIn,
     onValidation,
-    onSignUp,
+    onSignIn,
     ...more
-}: NavSignUpFormProps): ReactNode {
+}: NavSignInFormProps): ReactNode {
     return <>
         <Form
             {...more}>
-            {response[0] ? <>
-                <FormMessage>
-                    {response[0]}
-                </FormMessage>
-            </> : undefined}
-            <FormInput 
-                value={email[0]} 
-                placeholder="Email" 
-                onChange={e => email[1](e.target.value)}/>
-            <FormInput 
-                value={username[0]} 
-                placeholder="Username" 
+            <FormMessage>
+                {response[0]}
+            </FormMessage>
+            <FormInput
+                value={username[0]}
+                placeholder="Username"
                 onChange={e => username[1](e.target.value)}/>
             <FormInput
                 value={password[0]}
@@ -71,12 +66,12 @@ export function NavSignUpForm({
                 onClick={async () => {
                     let success: boolean;
                     let message: string | null;
-                    [success, message] = (await onValidation(username[0], password[0], email[0]));
+                    [success, message] = (await onValidation(username[0], password[0]));
                     if (success === false) {
                         response[1](message);
                         return;
                     }
-                    [success, message] = (await onSignUp(username[0], password[0], email[0]));
+                    [success, message] = (await onSignIn(username[0], password[0]));
                     if (success === false) {
                         response[1](message);
                         return;
@@ -84,7 +79,7 @@ export function NavSignUpForm({
                     response[1](null);
                     return;
                 }}>
-                Sign Up
+                Sign In
             </FormButton>
         </Form>
     </>;

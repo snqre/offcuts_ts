@@ -3,3 +3,7 @@ export * from "./axios";
 export * from "./order_data";
 export * from "./product_data";
 export * from "./user_data";
+export * from "./util/map_err";
+export * from "./util/require";
+export * from "./util_type/async_closure";
+export * from "./util_type/closure";
