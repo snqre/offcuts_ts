@@ -12,7 +12,7 @@ export type NavSuggestionProps =
     & Omit<ComponentPropsWithRef<"div">, "children">
     & {
     products: State<Array<ProductData>>;
-    productFocus: State<ProductData>;
+    productFocus: State<ProductData | null>;
     suggested: ProductData;
     to: string;
 };

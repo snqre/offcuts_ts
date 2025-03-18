@@ -16,7 +16,7 @@ export type NavSearchBarPartialBuildProps =
         | "suggestions">
     & {
     products: State<Array<ProductData>>;
-    productFocus: State<ProductData>;
+    productFocus: State<ProductData | null>;
 };
 
 export function NavSearchBarPartialBuild({

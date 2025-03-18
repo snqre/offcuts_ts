@@ -21,7 +21,7 @@ export type NavProps =
     materialFocus: State<string>,
     materialsDropDownButtonToggled: State<boolean>,
     products: State<Array<ProductData>>,
-    productFocus: State<ProductData>,
+    productFocus: State<ProductData | null>,
     searchBarToggled: State<boolean>,
     searchBarInput: State<string>,
     user: State<UserData | null>,

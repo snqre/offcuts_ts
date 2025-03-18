@@ -19,7 +19,7 @@ export type NavSearchBarProps =
         >
     & {
     products: State<Array<ProductData>>;
-    productFocus: State<ProductData>;
+    productFocus: State<ProductData | null>;
     toggled: State<boolean>;
     input: State<string>;
     suggestions: State<Array<ProductData>>;
