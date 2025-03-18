@@ -4,7 +4,8 @@ import {
     Routes,
     Route,
     render,
-    NavButton
+    NavButton,
+    NavCallToActionButton
 } from "@web";
 
 function App(): ReactNode {
@@ -14,16 +15,10 @@ function App(): ReactNode {
                 <Route
                     path="/"
                     element={<>
-                        <NavButton
-                            fontSizeOnMouseEnter="0.9em"
-                            fontSizeOnMouseLeave="1em"
-                            animation={{
-                                tension: 1000,
-                                friction: 10,
-                                mass: 3,
-                            }}>
-                            Button
-                        </NavButton>
+                        <NavCallToActionButton
+                            to="/">
+                            For Me
+                        </NavCallToActionButton>
                     </>}/>
             </Routes>
         </BrowserRouter>

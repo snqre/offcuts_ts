@@ -10,7 +10,7 @@ import {
 } from "@web";
 
 export type NavButtonProps =
-    & ComponentPropsWithRef<"button">
+    & ComponentPropsWithRef<"div">
     & {
     icon?: string,
     iconStyle?: CSSProperties,
@@ -36,7 +36,7 @@ export function NavButton({
     }));
     
     return <>
-        <button
+        <div
             style={{
                 all: "unset",
                 display: "flex",
@@ -46,6 +46,7 @@ export function NavButton({
                 cursor: "pointer",
                 padding: "8px",
                 gap: "5px",
+                textDecorationLine: "none",
                 ...style
             }}
             {...more}>
@@ -93,6 +94,6 @@ export function NavButton({
                     {children}
                 </animated.div>
             </> : undefined}
-        </button>
+        </div>
     </>;
 }

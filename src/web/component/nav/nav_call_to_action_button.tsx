@@ -1,7 +1,10 @@
 import {
     type ComponentPropsWithRef,
     type ReactNode,
-    NavCallToActionButtonIcon
+    NavCallToActionButtonIcon,
+    NavButton,
+    Link,
+    Color
 } from "@web";
 
 export type NavCallToActionButtonProps =
@@ -20,6 +23,8 @@ export function NavCallToActionButton({to, style, children, ...more}: NavCallToA
                 alignItems: "center",
                 gap: 10,
                 position: "relative",
+                background: Color[0],
+                borderRadius: "10px",
                 ...style
             }}>
             <NavCallToActionButtonIcon
@@ -28,7 +33,15 @@ export function NavCallToActionButton({to, style, children, ...more}: NavCallToA
                     right: "100%",
                     bottom: "100%"
                 }}/>
-            
+            <Link
+                to={to}>
+                <NavButton
+                    childStyle={{
+                        color: Color[1]
+                    }}>
+                    {children}
+                </NavButton>
+            </Link>
         </div>
     </>;
 }

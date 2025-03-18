@@ -4,6 +4,9 @@ import LOGO from "./img/logo.png"; export { LOGO };
 // @ts-ignore
 import BIG_STAR_AND_SMALLER_STAR_ICON from "./img/big_star_and_smaller_star_icon.png"; export { BIG_STAR_AND_SMALLER_STAR_ICON };
 
+// @ts-ignore
+import SEARCH_BAR_ICON from "./img/search_icon.png"; export { SEARCH_BAR_ICON };
+
 export {
     type ComponentPropsWithRef,
     type ReactNode,
@@ -53,9 +56,14 @@ export * from "./component/nav/nav_button";
 export * from "./component/nav/nav_call_to_action_button_icon";
 export * from "./component/nav/nav_call_to_action_button";
 export * from "./component/nav/nav_logo";
+export * from "./component/nav/nav_search_bar_partial_build";
+export * from "./component/nav/nav_search_bar";
 export * from "./component/nav/nav_sign_in_form";
 export * from "./component/nav/nav_sign_up_form";
+export * from "./component/nav/nav_signer_drop_down_button_partial_build";
+export * from "./component/nav/nav_signer_drop_down_button";
 export * from "./component/nav/nav_suggestion";
+export * from "./component/nav/nav";
 export * from "./component/sprite/sprite_icon";
 export * from "./component/sprite/sprite";
 export * from "./component/table/table_body";
