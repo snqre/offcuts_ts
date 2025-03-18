@@ -15,13 +15,13 @@ export type ImageCarouselProps =
     & {
     urls: Array<string>;
     msIntervalSleep: number;
-    configuration: SpringConfig;
+    animation: SpringConfig;
 };
 
 export function ImageCarousel({
     urls,
     msIntervalSleep,
-    configuration,
+    animation,
     style,
     children,
     ...more
@@ -29,7 +29,7 @@ export function ImageCarousel({
     let key: State<number> = useState(0);
     let springs = useSprings(urls.length, urls.map((_, urlKey) => ({
         transform: `translateX(${100 * (urlKey - key[0])}%)`,
-        config: configuration
+        config: animation
     })));
 
     useEffect(() => {

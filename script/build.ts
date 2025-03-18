@@ -6,5 +6,6 @@ build({
     minify: false,
     outdir: "src/web",
     sourcemap: "inline",
-    target: "browser"
+    target: "browser",
+    throw: true
 });
