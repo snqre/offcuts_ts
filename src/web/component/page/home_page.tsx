@@ -1,11 +1,12 @@
 import {
     type ReactNode,
     type PageWith3VerticalSectionsProps,
+    type SpringConfig,
     PageWith3VerticalSections,
     ImageCarousel,
     Typography,
     Color,
-    type SpringConfig
+    Reveal
 } from "@web";
 
 export type HomePageProps =
@@ -41,13 +42,19 @@ export function HomePage({
                     urls={imageCarouselUrls}
                     msIntervalSleep={imageCarouselMsIntervalSleep}
                     animation={imageCarouselAnimation}>
-                    <Typography
-                        style={{
-                            fontSize: "9em",
-                            color: Color[0]
+                    <Reveal
+                        msDelay={1000}
+                        animation={{
+                            duration: 15000
                         }}>
-                        {heading}
-                    </Typography>
+                        <Typography
+                            style={{
+                                fontSize: "9em",
+                                color: Color[0]
+                            }}>
+                            {heading}
+                        </Typography>
+                    </Reveal>
                 </ImageCarousel>
             </>, <>
                 <div

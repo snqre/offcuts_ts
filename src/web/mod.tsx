@@ -30,6 +30,7 @@ export {
 } from "react-router-dom";
 
 export {
+    type ComponentPropsWithRef as SpringComponentPropsWithRef,
     type SpringConfig,
     useSpring,
     useSprings,
@@ -42,6 +43,7 @@ export {
 
 export * from "@common";
 export * from "./component/animation/image_carousel";
+export * from "./component/animation/reveal";
 export * from "./component/constant/color";
 export * from "./component/constant/font";
 export * from "./component/constant/shadow";

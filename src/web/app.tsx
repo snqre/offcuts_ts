@@ -6,12 +6,10 @@ import {
     BrowserRouter,
     Routes,
     Route,
-    render,
-    NavButton,
-    NavCallToActionButton,
     NavPartialBuild,
     HomePage,
-    useState
+    useState,
+    render
 } from "@web";
 
 function App(): ReactNode {
@@ -30,9 +28,9 @@ function App(): ReactNode {
                     element={<>
                         <HomePage
                             imageCarouselUrls={[]}
-                            imageCarouselMsIntervalSleep={30 * 1000}
+                            imageCarouselMsIntervalSleep={30000}
                             imageCarouselAnimation={{
-                                duration: 30 * 1000
+                                duration: 30000
                             }}
                             heading="OFFCUTS"
                             subHeadings={[
@@ -50,7 +48,17 @@ function App(): ReactNode {
                                     userIsSignedIn={userIsSignedIn}/>
                             </>}
                             footer={<>
-
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        width: "100%",
+                                        height: "auto"
+                                    }}>
+                                    TODO
+                                </div>
                             </>}/>
                     </>}/>
             </Routes>
