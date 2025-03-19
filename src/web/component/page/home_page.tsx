@@ -9,6 +9,11 @@ import {
     Reveal
 } from "@web";
 
+export type HomePageCard = {
+    heading: string,
+    content: Array<string>
+};
+
 export type HomePageProps =
     & Omit<PageWith3VerticalSectionsProps,
         | "sections">
@@ -18,7 +23,7 @@ export type HomePageProps =
     imageCarouselAnimation: SpringConfig,
     heading: string,
     subHeadings: Array<string>,
-
+    cards?: Array<HomePageCard>
 };
 
 export function HomePage({
@@ -27,6 +32,7 @@ export function HomePage({
     imageCarouselAnimation,
     heading,
     subHeadings,
+    cards=[],
     ...more
 }: HomePageProps): ReactNode {
     return <>
@@ -45,7 +51,10 @@ export function HomePage({
                     <Reveal
                         msDelay={1000}
                         animation={{
-                            duration: 15000
+                            duration: 1000
+                        }}
+                        style={{
+                            width: "100%"
                         }}>
                         <Typography
                             style={{
@@ -64,16 +73,75 @@ export function HomePage({
                         justifyContent: "center",
                         alignItems: "center",
                         width: "100%",
-                        height: "auto"
+                        height: "auto",
+                        gap: "10px"
                     }}>
                     {subHeadings.map(subHeading => <>
-                        <Typography>
+                        <Typography
+                            style={{
+                                fontSize: "4em",
+                                color: Color[2],
+                                paddingLeft: "30px",
+                                paddingRight: "30px"
+                            }}>
                             {subHeading}
                         </Typography>
                     </>)}
                 </div>
             </>, <>
-                
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "start",
+                        width: "100%",
+                        height: "auto",
+                        flex: "1"
+                    }}>
+                    {cards.map(card => <>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "start",
+                                alignItems: "center",
+                                width: "100%",
+                                height: "auto",
+                                flex: "1",
+                                padding: "30px"
+                            }}>
+                            <Typography
+                                style={{
+                                    fontSize: "2em",
+                                    color: Color[2],
+                                    width: "100%",
+                                    justifyContent: "start",
+                                    paddingBottom: "20px"
+                                }}>
+                                {card.heading}
+                            </Typography>
+                            <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "start",
+                                alignItems: "center"
+                            }}>
+                            {card.content.map(line => <>
+                                <Typography
+                                    style={{
+                                        fontSize: "0.75em",
+                                        paddingTop: "5px",
+                                        paddingBottom: "5px"
+                                    }}>
+                                    {line}
+                                </Typography>
+                            </>)}
+                        </div>
+                        </div>
+                    </>)}
+                </div>
             </>]}
             {...more}/>
     </>;

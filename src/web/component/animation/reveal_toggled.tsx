@@ -2,27 +2,30 @@ import {
     type SpringComponentPropsWithRef,
     type ReactNode,
     type SpringConfig,
+    type State,
     useSpring,
     useEffect,
     animated
 } from "@web";
 
-export type RevealProps = 
+export type RevealToggledProps =
     & SpringComponentPropsWithRef<"div">
     & {
+    toggled: State<boolean>,
     msDelay?: number,
     animation?: SpringConfig
 };
 
-export function Reveal({
+export function RevealToggled({
+    toggled,
     msDelay=0,
     animation={
-        duration: 15000
+        duration: 1500
     },
     style,
     children,
     ...more
-}: RevealProps): ReactNode {
+}: RevealToggledProps): ReactNode {
     let initOpacity: string = "0";
     let nextOpacity: string = "1";
     let spring = useSpring(() => ({
@@ -31,12 +34,18 @@ export function Reveal({
     }));
 
     useEffect(() => {
+        if (toggled[0]) {
+            spring[1].start({
+                opacity: nextOpacity,
+                config: animation
+            });
+            return;
+        }
         spring[1].start({
-            opacity: nextOpacity,
+            opacity: initOpacity,
             config: animation
-        });
-        return;
-    }, []);
+        })
+    }, [toggled[0]]);
 
     return <>
         {/** @ts-ignore */}
@@ -48,8 +57,7 @@ export function Reveal({
                 alignItems: "center",
                 ...style,
                 ...spring[0]
-            }}
-            {...more}>
+            }}>
             {children}
         </animated.div>
     </>;

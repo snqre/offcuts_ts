@@ -1,5 +1,6 @@
 import {
     type ProductData,
+    type OrderData,
     Server
 } from "@common";
 
@@ -75,7 +76,13 @@ export const Bridge = Server<{}, {
         adminPassword: string,
         productKey: string,
         productAmount: number
-    }, errcode: Bridge.Err | null]
+    }, errcode: Bridge.Err | null],
+    "/checkout": [{
+        orders: Array<OrderData>
+    }, {
+        url: string,
+        errcode: Bridge.Err | null
+    }]
 }>();
 
 export namespace Bridge {
