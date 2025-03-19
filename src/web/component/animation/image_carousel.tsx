@@ -14,14 +14,16 @@ export type ImageCarouselProps =
     & ComponentPropsWithRef<"div">
     & {
     urls: Array<string>;
-    msIntervalSleep: number;
-    animation: SpringConfig;
+    msIntervalSleep?: number;
+    animation?: SpringConfig;
 };
 
 export function ImageCarousel({
     urls,
-    msIntervalSleep,
-    animation,
+    msIntervalSleep=10000,
+    animation={
+        duration: 10000
+    },
     style,
     children,
     ...more

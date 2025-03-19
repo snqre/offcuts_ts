@@ -29,9 +29,17 @@ function App(): ReactNode {
                     path="/"
                     element={<>
                         <HomePage
-                            imageCarouselUrls={}
-                            imageCarouselMsIntervalSleep={}
-                            imageCarouselAnimation={}
+                            imageCarouselUrls={[]}
+                            imageCarouselMsIntervalSleep={30 * 1000}
+                            imageCarouselAnimation={{
+                                duration: 30 * 1000
+                            }}
+                            heading="OFFCUTS"
+                            subHeadings={[
+                                "Revive.",
+                                "Reuse.",
+                                "R."
+                            ]}
                             navbar={<>
                                 <NavPartialBuild
                                     materials={materials}
@@ -40,6 +48,9 @@ function App(): ReactNode {
                                     productFocus={productFocus}
                                     user={user}
                                     userIsSignedIn={userIsSignedIn}/>
+                            </>}
+                            footer={<>
+
                             </>}/>
                     </>}/>
             </Routes>

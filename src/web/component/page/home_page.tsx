@@ -14,13 +14,18 @@ export type HomePageProps =
     & {
     imageCarouselUrls: Array<string>,
     imageCarouselMsIntervalSleep: number,
-    imageCarouselAnimation: SpringConfig
+    imageCarouselAnimation: SpringConfig,
+    heading: string,
+    subHeadings: Array<string>,
+
 };
 
 export function HomePage({
     imageCarouselUrls,
     imageCarouselMsIntervalSleep,
     imageCarouselAnimation,
+    heading,
+    subHeadings,
     ...more
 }: HomePageProps): ReactNode {
     return <>
@@ -41,13 +46,27 @@ export function HomePage({
                             fontSize: "9em",
                             color: Color[0]
                         }}>
-                        OFFCUTS
+                        {heading}
                     </Typography>
                 </ImageCarousel>
             </>, <>
-            
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "100%",
+                        height: "auto"
+                    }}>
+                    {subHeadings.map(subHeading => <>
+                        <Typography>
+                            {subHeading}
+                        </Typography>
+                    </>)}
+                </div>
             </>, <>
-            
+                
             </>]}
             {...more}/>
     </>;
