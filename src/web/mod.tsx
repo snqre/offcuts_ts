@@ -44,6 +44,11 @@ export {
     get as sort 
 } from "fast-levenshtein";
 
+export {
+    type Stripe as StripeSocket,
+    loadStripe as Stripe
+} from "@stripe/stripe-js";
+
 export * from "@common";
 export * from "./component/animation/image_carousel";
 export * from "./component/animation/reveal_toggled";
@@ -73,8 +78,10 @@ export * from "./component/nav/nav_signer_drop_down_button_partial_build";
 export * from "./component/nav/nav_signer_drop_down_button";
 export * from "./component/nav/nav_suggestion";
 export * from "./component/nav/nav";
+export * from "./component/page/basket_page";
 export * from "./component/page/for_you_page";
 export * from "./component/page/home_page";
+export * from "./component/payment/checkout_button";
 export * from "./component/sprite/sprite_icon";
 export * from "./component/sprite/sprite";
 export * from "./component/table/table_body";
@@ -87,4 +94,6 @@ export * from "./component/table/table_wrapper";
 export * from "./component/table/table";
 export * from "./component/typography/typography";
 export * from "./component/util/render";
+export * from "./component/util/terminal_partial_build";
+export * from "./component/util/terminal";
 export * from "./component/util_type/state";

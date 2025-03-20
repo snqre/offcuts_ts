@@ -6,7 +6,11 @@ import {
     PageWith2HorizontalSections,
     Table,
     TableItem,
-    TableSymbolButton
+    TableSymbolButton,
+    CheckoutButton,
+    Typography,
+    useState,
+    useEffect
 } from "@web";
 
 export type BasketPageProps =
@@ -19,6 +23,18 @@ export type BasketPageProps =
 };
 
 export function BasketPage({orders, ...more}: BasketPageProps): ReactNode {
+    let cost: State<number> = useState<number>(0);
+
+    useEffect(() => {
+        if (orders[0].length === 0) {
+            return;
+        }
+        let sum: number = 0;
+        orders[0].forEach(order => sum += (order.product.price * order.amount));
+        cost[1](sum);
+        return;
+    }, [orders[0]]);
+    
     return <>
         <PageWith2HorizontalSections
             sections={[<>
@@ -59,8 +75,12 @@ export function BasketPage({orders, ...more}: BasketPageProps): ReactNode {
                         </>
                     ])]}/>
             </>, <>
-            
+                <Typography>
+                    Total: £{cost[0].toPrecision(3)}
+                </Typography>
+                <CheckoutButton
+                    orders={orders}/>
             </>]}
             {...more}/>
     </>;
-} 
+}

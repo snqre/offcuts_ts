@@ -22,6 +22,10 @@ export const Bridge = Server<{}, {
         null, 
         Array<string>
     ],
+    "/products_by_material": [
+        productKey: string,
+        response: Array<ProductData>
+    ],
     "/products_by_key": [
         productKey: string,
         response: Array<ProductData>

@@ -3,6 +3,7 @@ import {
     type State,
     type ProductData,
     type UserData,
+    type OrderData,
     PLACEHOLDER,
     BrowserRouter,
     Routes,
@@ -10,11 +11,13 @@ import {
     NavPartialBuild,
     HomePage,
     ForYouPage,
+    BasketPage,
     useState,
     render
 } from "@web";
 
 function App(): ReactNode {
+    let orders: State<Array<OrderData>> = useState<Array<OrderData>>([]);
     let materials: State<Array<string>> = useState<Array<string>>([]);
     let materialFocus: State<string> = useState<string>("");
     let products: State<Array<ProductData>> = useState<Array<ProductData>>([]);
@@ -104,6 +107,21 @@ function App(): ReactNode {
                                 PLACEHOLDER,
                                 PLACEHOLDER
                             ]}/>
+                    </>}/>
+                <Route
+                    path="/basket"
+                    element={<>
+                        <BasketPage
+                            navbar={<>
+                                <NavPartialBuild
+                                    materials={materials}
+                                    materialFocus={materialFocus}
+                                    products={products}
+                                    productFocus={productFocus}
+                                    user={user}
+                                    userIsSignedIn={userIsSignedIn}/>
+                            </>}
+                            orders={orders}/>
                     </>}/>
             </Routes>
         </BrowserRouter>

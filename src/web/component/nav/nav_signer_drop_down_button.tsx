@@ -44,17 +44,39 @@ export function NavSignerDropDownButton({
                 }}>
                 Sign Up
             </NavButton>
-            <div
+            <NavButton
                 onClick={() => {
                     toggled[1](true);
                     signInToggled[1](true);
-                    signInToggled[1](false);
+                    signUpToggled[1](false);
                 }}
                 style={{
-                    
+                    fontSize: "0.75em"
                 }}>
                 Sign In
-            </div>
+            </NavButton>
+            {toggled[0] ? <>
+                <div
+                    onMouseLeave={() => {
+                        toggled[1](false);
+                        signInToggled[1](false);
+                        signUpToggled[1](false);
+                        return;
+                    }}
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "start",
+                        alignItems: "center",
+                        position: "absolute",
+                        right: "-100%",
+                        top: "175%",
+                        minWidth: "100%",
+                        width: 400
+                    }}>
+                    {signInToggled[0] ? signInForm : signUpToggled[0] ? signUpForm : undefined}
+                </div>
+            </> : undefined}
         </div>
     </>;
 }
