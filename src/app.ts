@@ -17,6 +17,7 @@ async function main() {
         .use(Server.json())
         .get("/", (_, response) => response.sendFile(join(__dirname, "web/app.html")))
         .listen(8080);
+    console.log("Listening", 8080);
 }
 
 main();
