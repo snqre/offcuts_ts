@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for offcuts-ts on 2025-03-17T00:04:17+01:00
+# fly.toml app configuration file generated for offcuts-ts-thrumming-log-8368 on 2025-03-20T11:07:39+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'offcuts-ts'
+app = 'offcuts-ts-thrumming-log-8368'
 primary_region = 'fra'
 
 [build]

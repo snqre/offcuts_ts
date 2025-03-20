@@ -16,8 +16,8 @@ async function main() {
         .use(Server.static(join(__dirname, "web")))
         .use(Server.json())
         .get("/", (_, response) => response.sendFile(join(__dirname, "web/app.html")))
-        .listen(8080);
-    console.log("Listening", 8080);
+        .listen(8080, "0.0.0.0", () => console.log("Running on porn 8080"));
+    return;
 }
 
 main();
