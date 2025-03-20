@@ -15,7 +15,8 @@ import {
     TerminalPage,
     Link,
     useState,
-    render
+    render,
+    Typography
 } from "@web";
 
 function App(): ReactNode {
@@ -78,18 +79,19 @@ function App(): ReactNode {
                             </>}
                             footer={<>
                                 <Link
-                                    to="/terminal">
-                                    <div
+                                    to="/terminal"
+                                    style={{
+                                        all: "unset",
+                                        paddingBottom: 10,
+                                        paddingTop: 10
+                                    }}>
+                                    <Typography
                                         style={{
-                                            display: "flex",
-                                            flexDirection: "row",
-                                            justifyContent: "center",
-                                            alignItems: "center",
-                                            width: "100%",
-                                            height: "auto"
+                                            fontSize: 8,
+                                            cursor: "pointer"
                                         }}>
                                         Terminal
-                                    </div>
+                                    </Typography>
                                 </Link>
                             </>}/>
                     </>}/>

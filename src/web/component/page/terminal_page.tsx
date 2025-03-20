@@ -3,6 +3,7 @@ import {
     type PageProps,
     type Closure,
     type ProductData,
+    SHADOW,
     Page,
     TerminalPartialBuild,
     Bridge
@@ -14,23 +15,23 @@ export type TerminalPageProps =
         >
     & {};
 
-export function TerminalPage({}: TerminalPageProps): ReactNode {
+export function TerminalPage({...more}: TerminalPageProps): ReactNode {
     return <>
-        <Page>
+        <Page
+            {...more}>
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    width: 800,
+                    width: 500,
                     aspectRatio: 1 / 1
                 }}>
                 <TerminalPartialBuild
                     style={{
-                        borderWidth: 1,
-                        borderStyle: "solid",
-                        borderColor: "black"
+                        boxShadow: SHADOW,
+                        padding: 10
                     }}
                     onEval={async commands => {
                         if (commands.length === 0) {
