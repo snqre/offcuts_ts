@@ -81,6 +81,7 @@ export * from "./component/nav/nav";
 export * from "./component/page/basket_page";
 export * from "./component/page/for_you_page";
 export * from "./component/page/home_page";
+export * from "./component/page/terminal_page";
 export * from "./component/payment/checkout_button";
 export * from "./component/sprite/sprite_icon";
 export * from "./component/sprite/sprite";

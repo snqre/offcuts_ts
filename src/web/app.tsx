@@ -12,6 +12,8 @@ import {
     HomePage,
     ForYouPage,
     BasketPage,
+    TerminalPage,
+    Link,
     useState,
     render
 } from "@web";
@@ -75,17 +77,20 @@ function App(): ReactNode {
                                     userIsSignedIn={userIsSignedIn}/>
                             </>}
                             footer={<>
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: "row",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        width: "100%",
-                                        height: "auto"
-                                    }}>
-                                    TODO
-                                </div>
+                                <Link
+                                    to="/terminal">
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            flexDirection: "row",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            width: "100%",
+                                            height: "auto"
+                                        }}>
+                                        Terminal
+                                    </div>
+                                </Link>
                             </>}/>
                     </>}/>
                 <Route
@@ -122,6 +127,20 @@ function App(): ReactNode {
                                     userIsSignedIn={userIsSignedIn}/>
                             </>}
                             orders={orders}/>
+                    </>}/>
+                <Route
+                    path="/terminal"
+                    element={<>
+                        <TerminalPage
+                            navbar={<>
+                                <NavPartialBuild
+                                    materials={materials}
+                                    materialFocus={materialFocus}
+                                    products={products}
+                                    productFocus={productFocus}
+                                    user={user}
+                                    userIsSignedIn={userIsSignedIn}/>
+                            </>}/>
                     </>}/>
             </Routes>
         </BrowserRouter>
