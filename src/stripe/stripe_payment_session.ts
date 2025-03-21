@@ -1,5 +1,5 @@
 import {
-    Stripe
-} from "@host";
+    default as Stripe
+} from "stripe";
 
 export type StripeCheckoutSession = Stripe.Checkout.Session;

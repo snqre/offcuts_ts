@@ -66,7 +66,7 @@ export function NavSignerDropDownButtonPartialBuild({
                         if ((await Bridge.touch("/username_is_available", {
                             username: username
                         })).success) {
-                            let errcode: Bridge.Err | null = (await Bridge.touch("/sign_up", {
+                            let errcode: Bridge.Error | null = (await Bridge.touch("/sign_up", {
                                 username: username,
                                 password: password,
                                 email: email
@@ -97,7 +97,7 @@ export function NavSignerDropDownButtonPartialBuild({
                         }
                     }}
                     onSignIn={async (username, password) => {
-                        let errcode: Bridge.Err | null = (await Bridge.touch("/sign_in", {
+                        let errcode: Bridge.Error | null = (await Bridge.touch("/sign_in", {
                             username: username,
                             password: password
                         }));

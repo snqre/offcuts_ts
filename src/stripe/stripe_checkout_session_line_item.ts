@@ -1,6 +1,8 @@
 import {
-    type OrderData,
-    Stripe
+    default as Stripe
+} from "stripe";
+import {
+    type OrderData
 } from "@host";
 
 export type StripeCheckoutSessionLineItem = Stripe.Checkout.SessionCreateParams.LineItem;

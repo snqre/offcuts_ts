@@ -1,8 +1,8 @@
 import {
     type Closure,
-    type OrderData,
-    Result
+    type OrderData
 } from "@host";
+import { Result } from "ts-results";
 
 /**
  * ***where***

@@ -1,6 +1,6 @@
 import {
-    type Result
-} from "@host";
+    Result
+} from "ts-results";
 
 export type Storage<T1=unknown, T2 extends string=string> = {
     get(): Promise<Result<T1, T2>>,

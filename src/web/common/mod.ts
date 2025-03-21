@@ -10,11 +10,9 @@ export * from "./util/require";
 export * from "./util_type/async_closure";
 export * from "./util_type/closure";
 
-export { default as Axios } from "axios";
-
 export {
-    Result,
     Option,
+    Result,
     Ok,
     Err,
     Some,

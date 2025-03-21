@@ -2,7 +2,7 @@ import {
     Option,
     Some,
     None
-} from "@host";
+} from "ts-results";
 
 export namespace Env {
 

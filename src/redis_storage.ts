@@ -1,19 +1,23 @@
 import {
     type RedisClientType,
+    createClient as RedisSDK
+} from "redis";
+import {
+    Result as Result$,
+    Ok,
+    Err
+} from "ts-results";
+import {
     type AppData,
     type Storage,
-    RedisSDK,
-    Ok,
-    Err,
-    Result as Result$,
     Json
 } from "@host";
 
-export type Redis =
-    & Storage<AppData, Redis.Error>
+export type RedisStorage =
+    & Storage<AppData, RedisStorage.Error>
     & {};
 
-export async function Redis(_password: string, _host: string, _port: number): Promise<Redis.Result<Redis>> {
+export async function RedisStorage(_password: string, _host: string, _port: number): Promise<RedisStorage.Result<RedisStorage>> {
     let _api: RedisClientType;
 
     /***/ {
@@ -36,7 +40,7 @@ export async function Redis(_password: string, _host: string, _port: number): Pr
         return Ok({get, set});
     }
 
-    async function get(): Promise<Redis.Result<AppData>> {
+    async function get(): Promise<RedisStorage.Result<AppData>> {
         let response: string | null;
         try {
             response = (await _api.get("*"));
@@ -45,7 +49,7 @@ export async function Redis(_password: string, _host: string, _port: number): Pr
             return Err("Redis.GetRequestFailed");
         }
         if (response === null || response === undefined) {
-            let new$: Redis.Result<string> = _new();
+            let new$: RedisStorage.Result<string> = _new();
             if (new$.err) return new$;
             let new$0: string = new$.safeUnwrap();
             response = new$0;
@@ -53,8 +57,8 @@ export async function Redis(_password: string, _host: string, _port: number): Pr
         return Json.deserialize<AppData>(response).toResult("Redis.MalformedDeserialization");
     }
 
-    async function set(data: AppData): Promise<Redis.Result<void>> {
-        let data$: Redis.Result<string> = Json.serialize(data).toResult("Redis.MalformedSerialization");
+    async function set(data: AppData): Promise<RedisStorage.Result<void>> {
+        let data$: RedisStorage.Result<string> = Json.serialize(data).toResult("Redis.MalformedSerialization");
         if (data$.err) {
             return data$;
         }
@@ -68,7 +72,7 @@ export async function Redis(_password: string, _host: string, _port: number): Pr
         return Ok(undefined);
     }
 
-    function _new(): Redis.Result<string> {
+    function _new(): RedisStorage.Result<string> {
         let data: AppData = {
             users: {},
             products: []
@@ -77,9 +81,9 @@ export async function Redis(_password: string, _host: string, _port: number): Pr
     }
 }
 
-export namespace Redis {
+export namespace RedisStorage {
 
-    export type Result<T1> = Result$<T1, Redis.Error>;
+    export type Result<T1> = Result$<T1, RedisStorage.Error>;
 
     export type Error =
         | "Redis.MalformedSerialization"

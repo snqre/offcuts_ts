@@ -38,59 +38,65 @@ export const Bridge = Server<{}, {
         username: string,
         password: string,
         email: string
-    }, errcode: Bridge.Err | null],
+    }, errcode: Bridge.MaybeError],
     "/sign_in": [{
         username: string,
         password: string
-    }, errcode: Bridge.Err | null],
+    }, errcode: Bridge.MaybeError],
     "/list": [{
         adminPassword: string,
         product: ProductData
-    }, errcode: Bridge.Err | null]
+    }, errcode: Bridge.MaybeError]
     "/delist": [{
         adminPassword: string,
         productKey: string
-    }, errcode: Bridge.Err | null]
+    }, errcode: Bridge.MaybeError]
     "/set_stock": [{
         adminPassword: string,
         productKey: string,
         productAmount: number
-    }, errcode: Bridge.Err | null],
+    }, errcode: Bridge.MaybeError],
     "/increase_stock": [{
         adminPassword: string,
         productKey: string,
         productAmount: number
-    }, errcode: Bridge.Err | null],
+    }, errcode: Bridge.MaybeError],
     "/decrease_stock": [{
         adminPassword: string,
         productKey: string,
         productAmount: number
-    }, errcode: Bridge.Err | null],
+    }, errcode: Bridge.MaybeError],
     "/set_price": [{
         adminPassword: string,
         productKey: string,
         productAmount: number
-    }, errcode: Bridge.Err | null],
+    }, errcode: Bridge.MaybeError],
     "/increase_price": [{
         adminPassword: string,
         productKey: string,
         productAmount: number
-    }, errcode: Bridge.Err | null],
+    }, errcode: Bridge.MaybeError],
     "/decrease_price": [{
         adminPassword: string,
         productKey: string,
         productAmount: number
-    }, errcode: Bridge.Err | null],
+    }, errcode: Bridge.MaybeError],
     "/checkout": [{
         orders: Array<OrderData>
     }, {
         url: string,
-        errcode: Bridge.Err | null
+        errcode: Bridge.MaybeError
     }]
 }>();
 
 export namespace Bridge {
-    export type Err =
-        | "BRIDGE.ERR_INVALID_REQUEST"
-        | "BRIDGE.ERR_USERNAME_NOT_AVAILABLE";
+    export type MaybeError = Bridge.Error | null;
+
+    export type Error =
+        | "Bridge.InvalidRequest"
+        | "Bridge.InvalidResponse"
+        | "Bridge.UsernameNotAvailable"
+        | "Bridge.EmptyOrders"
+        | "Bridge.PaymentProviderUnavailable"
+        | "Bridge.PaymentProviderSessionUrlUnavailable";
 }
